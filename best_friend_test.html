@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Friend Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .image {
+            max-width: 100%;
+            height: auto;
+            animation: imageAnimation 2s ease-in-out infinite;
+        }
+        .question {
+            font-size: 24px;
+            margin-top: 20px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        /* Pastel Aesthetic */
+        .pastel-background {
+            background: linear-gradient(to right, #fcb7d4, #f0c8ec);
+            min-height: 100vh;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        /* Angry Background */
+        .angry-background {
+            background: linear-gradient(to right, #ff6666, #ff4d4d);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        /* Happy Pink Background */
+        .happy-background {
+            background: linear-gradient(to right, #ffb3b3, #ff66b2);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .corner-text {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes imageAnimation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container pastel-background" id="main-container">
+    <!-- Milk and Mocha Characters Image -->
+    <img class="image" id="main-image" src="https://upload.wikimedia.org/wikipedia/en/e/e1/Milk_and_Mocha_characters.jpg" alt="Milk and Mocha">
+    
+    <div class="question" id="question-text">Are you my best friend?</div>
+
+    <div class="buttons">
+        <button onclick="answer('no')">No</button>
+        <button onclick="answer('yes')">Yes</button>
+    </div>
+</div>
+
+<script>
+    function answer(response) {
+        const container = document.getElementById('main-container');
+        const questionText = document.getElementById('question-text');
+        const mainImage = document.getElementById('main-image');
+        
+        if (response === 'no') {
+            // Change to Angry state
+            container.innerHTML = `
+                <div class="angry-background">
+                    <!-- Angry Bear Image -->
+                    <img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9dh9j2IuhR5aozMBhQYdiKm4vJSyppEo1hQ&s" alt="Angry Bear">
+                    <div class="question">Toramaikechodo</div>
+                </div>
+            `;
+        } else if (response === 'yes') {
+            // Change to Happy state
+            container.innerHTML = `
+                <div class="happy-background">
+                    <!-- Happy Milk Mocha Image -->
+                    <img class="image" src="https://i.pinimg.com/236x/41/2b/c2/412bc229b29c2b825f92fcaccfc7f21a.jpg" alt="Happy Milk Mocha">
+                    <div class="question">Yayeeee kitna pyaara hai tu Nidhip</div>
+                    <div class="corner-text">Accha hua No nhi click kara</div>
+                </div>
+            `;
+        }
+    }
+</script>
+
+</body>
+</html>
